@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123221716) do
+ActiveRecord::Schema.define(version: 20160124121747) do
 
-# Could not dump table "profiles" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "profiles", force: :cascade do |t|
+    t.string   "gender"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "birth_year"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
+  create_table "todo_items", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.date     "due_date"
+    t.boolean  "completed"
+    t.integer  "todo_list_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "todo_items", ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
 
   create_table "todo_lists", force: :cascade do |t|
     t.string   "list_name"

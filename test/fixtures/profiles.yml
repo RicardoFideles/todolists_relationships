@@ -4,10 +4,12 @@ one:
   gender: MyString
   first_name: MyString
   last_name: MyString
-  references: 
+  birth_year: 1
+  user_id: 
 
 two:
   gender: MyString
   first_name: MyString
   last_name: MyString
-  references: 
+  birth_year: 1
+  user_id: 
